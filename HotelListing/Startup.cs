@@ -28,6 +28,9 @@ namespace HotelListing
                 options.UseSqlServer(Configuration.GetConnectionString("sqlConnection"))
                 );
 
+            services.AddAuthentication();
+            services.ConfigureIdentity();
+
             //adding Cors Policy with no restrictions
             services.AddCors(o => {
                 o.AddPolicy("AllowAll", builder =>
